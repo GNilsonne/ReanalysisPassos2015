@@ -1,0 +1,16 @@
+study,medication,smd,ci.lower,ci.upper
+Newton 2014,psychotropic,"-0,26","-0,9","0,37"
+Odonovan 2015,psychotropic,"0,33","-0,05","0,72"
+Lindqvist 2014,psychotropic,"0,28","-0,11","0,67"
+Gill 2010,psychotropic,"0,66","0,09","1,23"
+Guo 2012,psychotropic,"3,39","2,78",4
+Smith 2011,psychotropic,"0,24","-0,09","0,58"
+von Känel 2010,psychotropic,"0,28","-0,38","0,94"
+Hoge 2009,psychotropic,"1,06","0,5","1,62"
+Song 2007,psychotropic,"0,64","0,13","1,16"
+von Känel 2007,free,"-0,17","-0,91","0,57"
+Oganesyan 2009,free,"1,26","0,71","1,8"
+Maes 1999,free,"2,19","1,24","3,14"
+Gill 2013,free,"1,31","0,39","2,23"
+Vidovic 2011,free,"0,79","0,21","1,38"
+Baker 2001,free,"1,55","0,52","2,59"
