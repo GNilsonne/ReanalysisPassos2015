@@ -39,6 +39,10 @@ summary(egger2) # significant, p = .019
 # Other considerations ----
 # Correlation btwn moderators, MDD diagnosis and medication
 table(data$mdd, data$medication, dnn = list("MDD", "Medication"))
+temp = data.frame("medicated" = ifelse(data$medication == "psychotropic", 1, 0),
+                  "mdd" = ifelse(data$mdd == "with", 1, 0),
+                  "sei" = data$sei)
+cor(temp)
 
 # Heterogeneity
 funnel(res, pch = ifelse(data$medication == "psychotropic", 15, 17))
@@ -58,3 +62,17 @@ funnelPETPEESE(data[data$mdd == "without",])
 PET(data[data$mdd == "with",])
 PEESE(data[data$mdd == "with",])
 funnelPETPEESE(data[data$mdd == "with",])
+
+funnelPETPEESE(data[data$mdd == "without" & data$study != "Guo 2012",])
+
+# Maybe not so big a moderation after considering pub bias & excluding outlier?
+funnelPETPEESE(data[data$mdd == "without" & data$study != "Guo 2012",])
+PEESE(data[data$mdd == "without" & data$study != "Guo 2012",])
+funnelPETPEESE(data[data$mdd == "with",])
+PEESE(data[data$mdd == "with",])
+# both suggest d = .50, although I don't know why these groups would
+  # exhibit different degrees of bias
+
+# Plots w/ significance zone might help
+funnel(res, refline = 0, back = "grey90",
+       level = c(90, 95, 99), shade = c("grey98", "grey55", "grey75"))
