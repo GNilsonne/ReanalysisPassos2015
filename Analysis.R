@@ -20,7 +20,7 @@ funnelPETPEESE(data)
 
 # Plot was exported manually on 2015-12-03 with 600x600 resolution.
 
-# Sensitivity analysis excluding outlier study by Gou et al.
+# Sensitivity analysis excluding outlier study by Guo et al.
 res2 <- rma(yi = smd, sei = sei, data = data[data$study != "Guo 2012", ], slab=study)
 forest(res2)
 funnel(res2)
