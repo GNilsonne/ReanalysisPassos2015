@@ -76,3 +76,7 @@ PEESE(data[data$mdd == "with",])
 # Plots w/ significance zone might help
 funnel(res, refline = 0, back = "grey90",
        level = c(90, 95, 99), shade = c("grey98", "grey55", "grey75"))
+
+# Make cumulative forest plot ordered by study precision
+res3 <- cumul(res, order=order(data$sei))
+forest(res3)
