@@ -6,11 +6,13 @@ data <- read.csv("data_fig3a.csv", dec=",")
 data$ci.halfwidth = abs(data$smd - data$ci.lower)
 data$sei = data$ci.halfwidth/1.96
 data$yi = data$smd # Naming to work with PETPEESE function
+data$study <- as.character(data$study)
+data$study[data$study == "Odonovan 2015"] <- "O'Donovan 2015"
 
 # Reanalyse data
 res <- rma(yi = smd, sei = sei, data = data, slab=study)
 forest(res)
-funnel(res)
+funnel(res, xlab = "d")
 trimfill(res)
 
 # Perform PET and PEESE
@@ -79,4 +81,4 @@ funnel(res, refline = 0, back = "grey90",
 
 # Make cumulative forest plot ordered by study precision
 res3 <- cumul(res, order=order(data$sei))
-forest(res3)
+forest(res3, xlab = "d")
