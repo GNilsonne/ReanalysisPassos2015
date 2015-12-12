@@ -12,7 +12,9 @@ data$study[data$study == "Odonovan 2015"] <- "O'Donovan 2015"
 # Reanalyse data
 res <- rma(yi = smd, sei = sei, data = data, slab=study)
 forest(res)
+pdf("fig1a.pdf")
 funnel(res, xlab = "d")
+dev.off()
 trimfill(res)
 
 # Perform PET and PEESE
@@ -81,4 +83,6 @@ funnel(res, refline = 0, back = "grey90",
 
 # Make cumulative forest plot ordered by study precision
 res3 <- cumul(res, order=order(data$sei))
+pdf("fig1b.pdf")
 forest(res3, xlab = "d")
+dev.off()
